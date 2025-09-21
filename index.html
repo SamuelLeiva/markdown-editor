@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Markdown Editor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./js/app.js"></script>
-</head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-</body>
+  </head>
+  <body class="h-screen flex flex-col">
+    <header
+      class="fixed bottom-0 left-0 right-0 p-4 bg-gray-800 text-white md:top-0 md:bottom-auto z-10"
+    >
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Generar Vista Previa
+      </button>
+    </header>
+    <main
+      class="flex-grow flex flex-col md:flex-row mt-16 overflow-y-auto"
+    >
+    <!-- Sección del editor -->
+      <section class="flex-1 p-4 bg-gray-100 overflow-y-auto">
+        <h2 class="text-xl font-bold mb-4">Editor</h2>
+        <!-- Área de texto para la edición -->
+        <textarea class="w-full h-full bg-white border rounded p-2"></textarea>
+      </section>
+
+    <!-- Sección de la vista previa -->
+      <section class="flex-1 p-4 bg-gray-200 overflow-y-auto">
+        <h2 class="text-xl font-bold mb-4">Vista Previa</h2>
+        <!-- Acá se mostrará la vista previa del contenido traducido desde markdown -->
+        <div id="preview-content"></div>
+      </section>
+    </main>
+  </body>
 </html>
