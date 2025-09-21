@@ -1,7 +1,28 @@
 const editor = document.getElementById("markdown-editor");
 const preview = document.getElementById("preview-content");
 const generateButton = document.getElementById("generate-preview-button");
+
+// Botón para cambiar el estilo de los encabezados
 const contrastButton = document.getElementById("contrast-headings");
+
+// Contadores de palabras y caracteres
+const wordCountSpan = document.getElementById("word-count");
+const charCountSpan = document.getElementById("char-count");
+
+editor.addEventListener("input", () => {
+  const text = editor.value;
+
+  // Contar caracteres
+  const charCount = text.length;
+
+  // Contar palabras
+  const words = text.split(/\s+/).filter((word) => word.length > 0);
+  const wordCount = words.length;
+
+  // Actualizar contadores en la interfaz
+  wordCountSpan.textContent = wordCount;
+  charCountSpan.textContent = charCount;
+});
 
 // Evento al hacer clic en el botón de generar vista previa
 generateButton.addEventListener("click", () => {
