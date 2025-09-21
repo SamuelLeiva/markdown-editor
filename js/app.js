@@ -1,12 +1,18 @@
 const editor = document.getElementById("markdown-editor");
 const preview = document.getElementById("preview-content");
 const generateButton = document.getElementById("generate-preview-button");
+const contrastButton = document.getElementById("contrast-headings");
 
 // Evento al hacer clic en el botón de generar vista previa
 generateButton.addEventListener("click", () => {
   const markdownText = editor.value;
   const htmlText = convertMarkdownToHTML(markdownText);
   preview.innerHTML = htmlText;
+});
+
+// Evento al hacer clic en el botón de cambiar estilo de encabezados
+contrastButton.addEventListener("click", () => {
+    toggleHeadingStyles(preview);
 });
 
 // Función para convertir markdown a HTML
@@ -37,4 +43,32 @@ function convertMarkdownToHTML(markdown) {
   );
 
   return result;
+}
+
+// Función para modificar los encabezados a un estilo diferente (color y tamaño)
+// Color azul y grande -> Color verde y mediano, y viceversa
+function toggleHeadingStyles(container) {
+    const headings = container.querySelectorAll("h1, h2, h3");
+    headings.forEach((heading) => {
+        // si el encabezado es azul, cambiar a verde, y viceversa
+        if (heading.classList.contains("text-blue-600")) {
+            heading.classList.remove("text-blue-600");
+            heading.classList.add("text-green-600");
+        } else {
+            heading.classList.remove("text-green-600");
+            heading.classList.add("text-blue-600");
+        }
+
+        // Alternar tamaños de fuente
+        if (heading.tagName === "H1") {
+            heading.classList.toggle("text-3xl");
+            heading.classList.toggle("text-4xl");
+        } else if (heading.tagName === "H2") {
+            heading.classList.toggle("text-2xl");
+            heading.classList.toggle("text-3xl");
+        } else if (heading.tagName === "H3") {
+            heading.classList.toggle("text-xl");
+            heading.classList.toggle("text-2xl");
+        }
+    });
 }
