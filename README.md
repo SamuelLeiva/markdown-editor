@@ -5,6 +5,7 @@ Este es un editor de Markdown sencillo y minimalista, construido con **HTML**, *
 ## 🚀 Cómo Usarlo
 
 Simplemente escribe tu texto en el área del **Editor**. A medida que escribes, el contador de palabras y caracteres se actualizará. Cuando quieras ver el resultado, haz clic en el botón **"Generar Vista Previa"** en la barra de herramientas.
+Haz clic en el botón **"Cambiar Estilo Encabezados"** para cambiar los estilos de los encabezados (color y tamaño).
 
 ## 💻 Caso de Ejemplo
 
